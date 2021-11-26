@@ -76,4 +76,11 @@ export const checkoutButton = styled.button`
   border-radius: 15px;
   margin-right: 100px;
   margin-bottom: 20px;
+  &:disabled {
+    background-color: #333333a3;
+    color: #ffc50075;
+  }
+  &:hover {
+    background-color: #3f3e3e;
+  }
 `;
