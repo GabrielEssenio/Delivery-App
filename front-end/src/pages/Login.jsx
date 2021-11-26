@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import rockGlass from '../images/rockGlass.svg';
 import { setOnLocalStorage, getFromLocalStorage }
   from '../services/helpers/servicesLocalStorage';
 import Context from '../context/Context';
 import { loginService } from '../services/apis/servicesLogin';
+import logo from '../images/ZeJaquinhaDlivery.png';
+import * as S from '../styles/Login';
 
 function Login() {
   const token = getFromLocalStorage('user');
@@ -72,37 +73,26 @@ function Login() {
   }, [login]);
 
   return (
-    <div>
+    <S.loginContainer>
       {token !== null
         ? isLogin()
-        : <span className="logo">TRYBE</span>}
-      <object className="rocksGlass" type="image/svg+xml" data={ rockGlass }>
-        Glass
-      </object>
-      <label htmlFor="email-input">
-        <input
-          id="email-input"
-          className="email-input"
+        : <S.loginImg src={ logo } alt="logo Zé Jaquinha" />}
+      <S.loginForm>
+        <S.loginInput
           type="email"
           name="email"
           data-testid="common_login__input-email"
           placeholder="Email"
           onChange={ handleChange }
         />
-      </label>
-      <label htmlFor="password-input">
-        <input
-          id="password-input"
-          className="password-input"
+        <S.loginInput
           type="password"
           name="password"
           data-testid="common_login__input-password"
           placeholder="Senha"
           onChange={ handleChange }
         />
-      </label>
-      <div className="loginButton">
-        <button
+        <S.loginButton
           className="loginButton"
           type="button"
           data-testid="common_login__button-login"
@@ -110,21 +100,19 @@ function Login() {
           onClick={ handleClick }
         >
           Entrar/Logar
-        </button>
-      </div>
-      <div>
-        <button
+        </S.loginButton>
+        <S.loginButton
           type="button"
           data-testid="common_login__button-register"
           onClick={ redirect }
         >
           Registrar novo usuario
-        </button>
-      </div>
-      <h2 data-testid="common_login__element-invalid-email" hidden={ hidden }>
-        Email ou Senha invalidos
-      </h2>
-    </div>
+        </S.loginButton>
+        <S.loginError data-testid="common_login__element-invalid-email" hidden={ hidden }>
+          Email ou Senha invalidos
+        </S.loginError>
+      </S.loginForm>
+    </S.loginContainer>
   );
 }
 

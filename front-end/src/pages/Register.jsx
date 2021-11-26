@@ -4,6 +4,8 @@ import { useHistory } from 'react-router';
 import { sendNewUser } from '../services/apis/servicesLogin';
 import { setOnLocalStorage } from '../services/helpers/servicesLocalStorage';
 import Context from '../context/Context';
+import logo from '../images/ZeJaquinhaDlivery.png';
+import * as S from '../styles/Login';
 
 const regex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const MIN_NAME = 12;
@@ -36,20 +38,6 @@ function Register() {
     }
   };
 
-  // const sendNewUser = async (e) => {
-  //   e.preventDefault();
-  //   const path = 'http://localhost:3001/register';
-
-  //   try {
-  //     const { data } = await axios.post(path, { name, email, password });
-  //     await setOnLocalStorage('user', data);
-  //     history.push('/customer/products');
-  //   } catch (err) {
-  //     setShowMessageError('Email ou usuário já existente!');
-  //     setShowMessage(true);
-  //   }
-  // };
-
   useEffect(() => {
     const isValidEmail = regex.test(email);
     const isValidName = name.length >= MIN_NAME;
@@ -62,12 +50,16 @@ function Register() {
     }
   }, [name, email, password]);
 
+  const redirect = () => {
+    history.push('/');
+  };
+
   return (
-    <div className="register">
-      <h1>cadastro</h1>
-      {/* <form onSubmit={ handleClick }> */}
-      <label htmlFor="name">
-        <input
+    <S.loginContainer className="register">
+      <S.loginImg src={ logo } alt="logo Zé Jaquinha" />
+      <S.loginCadastror>Cadastre - se</S.loginCadastror>
+      <S.loginForm onSubmit={ handleClick }>
+        <S.loginInput
           id="name"
           type="text"
           placeholder="Seu nome"
@@ -75,9 +67,7 @@ function Register() {
           onChange={ ({ target: { value } }) => setName(value) }
           data-testid="common_register__input-name"
         />
-      </label>
-      <label htmlFor="email">
-        <input
+        <S.loginInput
           id="email"
           type="text"
           placeholder="Seu-email@site.com.br"
@@ -85,25 +75,28 @@ function Register() {
           onChange={ ({ target: { value } }) => setEmail(value) }
           data-testid="common_register__input-email"
         />
-      </label>
-      <label htmlFor="senha">
-        <input
+        <S.loginInput
           type="password"
           placeholder="******"
           value={ password }
           onChange={ ({ target: { value } }) => setPassword(value) }
           data-testid="common_register__input-password"
         />
-      </label>
-      <button
-        type="submit"
-        data-testid="common_register__button-register"
-        disabled={ disableBtn }
-        onClick={ handleClick }
-      >
-        Cadastrar
-      </button>
-      {/* </form> */}
+        <S.loginButton
+          type="submit"
+          data-testid="common_register__button-register"
+          disabled={ disableBtn }
+        >
+          Cadastrar
+        </S.loginButton>
+        <S.loginButton
+          type="submit"
+          data-testid="common_register__button-register"
+          onClick={ redirect }
+        >
+          Voltar/Login
+        </S.loginButton>
+      </S.loginForm>
       {
         showMessage
         && (
@@ -114,7 +107,7 @@ function Register() {
           </span>
         )
       }
-    </div>
+    </S.loginContainer>
   );
 }
 
