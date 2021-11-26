@@ -31,8 +31,16 @@ export const spanStatus = styled.span`
   border-radius: 15px;
 `;
 
-// const color = {
-//   Pendente: '#ff2300',
-//   Preparando: '#0089ffbf',
-//   Entregue: '#04ff00',
-// };
+export const statusButton = styled.button`
+  background-color: #333333;
+  color: #ffc500;
+  padding: 10px 15px;
+  border-radius: 15px;
+  &:disabled {
+    background-color: #333333a3;
+    color: #ffc50075;
+  }
+  &:hover {
+    background-color: #3f3e3e;
+  }
+`;

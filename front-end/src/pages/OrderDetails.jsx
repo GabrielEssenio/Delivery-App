@@ -95,7 +95,7 @@ function OrderDetails() {
 
   const buttonPreparingCheck = () => (
     <div className="button-preparing-check">
-      <button
+      <P.statusButton
         type="button"
         data-testid={ role + PREPARING_CHECK }
         disabled={ productsDetails.status !== 'Pendente'
@@ -103,33 +103,33 @@ function OrderDetails() {
         onClick={ () => changeStatus('Preparando') }
       >
         PREPARAR PEDIDO
-      </button>
+      </P.statusButton>
     </div>
   );
 
   const buttonDeliveryCheck = () => (
     <div className="button-check-status">
-      <button
+      <P.statusButton
         type="button"
         disabled={ productsDetails.status !== 'Em Trânsito' }
         data-testid={ role + CHECK_STAUS }
         onClick={ () => changeStatus('Entregue') }
       >
         MARCAR COMO ENTREGUE
-      </button>
+      </P.statusButton>
     </div>
   );
 
   const buttonDispachCheck = () => (
     <div className="button-dispatch-check">
-      <button
+      <P.statusButton
         type="button"
         disabled={ productsDetails.status !== 'Preparando' }
         data-testid={ role + DISPACH_CHECK }
         onClick={ () => changeStatus('Em Trânsito') }
       >
         SAIU PARA ENTREGA
-      </button>
+      </P.statusButton>
     </div>
   );
 
