@@ -47,7 +47,7 @@ function DetailsAddress() {
 
         <S.containerImput>
           <S.legend>Nome</S.legend>
-          <input
+          <S.inputText
             data-testid={ `${INPUT_NAME_ADMIN}` }
             onChange={ ({ target }) => setName(target.value) }
             type="text"
@@ -57,7 +57,7 @@ function DetailsAddress() {
 
         <S.containerImput>
           <S.legend>Email</S.legend>
-          <input
+          <S.inputText
             data-testid={ `${INPUT_EMAIL_ADMIN}` }
             onChange={ ({ target }) => setEmail(target.value) }
             type="email"
@@ -67,7 +67,7 @@ function DetailsAddress() {
 
         <S.containerImput>
           <S.legend>Senha</S.legend>
-          <input
+          <S.inputText
             data-testid={ `${INPUT_PASSWORD_ADMIN}` }
             onChange={ ({ target }) => setPassword(target.value) }
             type="password"
