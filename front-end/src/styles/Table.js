@@ -13,12 +13,16 @@ export const tr = styled.tr`
 `;
 
 export const th = styled.th`
-  background-color: white;
+  background-color: #333333;
+  padding: 5px;
 `;
 
 export const thead = styled.thead`
   width: 100%;
   font-size: 1.3em;
+  color: #FFC500;
+  letter-spacing: 2.5px;
+  border: 1px solid black;
 `;
 
 export const tbody = styled.tbody`
@@ -27,6 +31,8 @@ export const tbody = styled.tbody`
 `;
 
 export const td = styled.td`
-  background-color: #aaa;
+  background-color:#FFC500;
   border: 1px solid black;
+  padding: 3px;
+  font-size: 1.1em;
 `;
