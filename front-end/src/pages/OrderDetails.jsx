@@ -31,6 +31,13 @@ const DEFAULT_DATA_PRODUCTS = {
   total_price: '',
 };
 
+const color = {
+  Pendente: '#ff2300',
+  Preparando: '#0089ffbf',
+  Entregue: '#04ff00',
+  'Em Trânsito': '#00ffa1',
+};
+
 function OrderDetails() {
   const [productsDetails, setProductsDetails] = useState(DEFAULT_DATA_PRODUCTS);
   const { idVenda } = useParams();
@@ -142,7 +149,12 @@ function OrderDetails() {
           </span>
         </div>
         <div className="pedido-status">
-          <span data-testid={ role + STATUS }>{ productsDetails.status }</span>
+          <P.spanStatus
+            data-testid={ role + STATUS }
+            color={ color[productsDetails.status] }
+          >
+            { productsDetails.status }
+          </P.spanStatus>
         </div>
         {role === 'seller' ? buttonPreparingCheck() : ''}
         {role === 'seller' ? buttonDispachCheck() : buttonDeliveryCheck()}

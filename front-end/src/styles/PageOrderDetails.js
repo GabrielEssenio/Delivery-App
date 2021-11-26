@@ -24,3 +24,15 @@ export const divTotalPrice = styled.div`
   margin-left: 20px;
   position: fixed;
 `;
+
+export const spanStatus = styled.span`
+  background-color: ${(props) => props.color};
+  padding: 5px 15px;
+  border-radius: 15px;
+`;
+
+// const color = {
+//   Pendente: '#ff2300',
+//   Preparando: '#0089ffbf',
+//   Entregue: '#04ff00',
+// };
