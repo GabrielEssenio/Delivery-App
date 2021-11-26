@@ -71,7 +71,7 @@ function OrderDetails() {
 
   const sellerNameComponente = () => (
     <div className="pessoa-vendedora">
-      <span>Vendedor:</span>
+      <span>Vendedor: </span>
       <span data-testid={ role + NAME_SELLER }>
         { productsDetails.seller.name }
       </span>
@@ -132,7 +132,7 @@ function OrderDetails() {
 
       <P.divOrderDetail>
         <div className="pedito-id">
-          <span>pedido:</span>
+          <span>Pedido: </span>
           <span data-testid={ role + ID_ORDER }>{ productsDetails.id }</span>
         </div>
         {role !== 'seller' ? sellerNameComponente() : ''}
