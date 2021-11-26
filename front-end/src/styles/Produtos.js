@@ -62,3 +62,18 @@ export const inputProduct = styled.input`
   width: 20%;
   text-align: center;
 `;
+
+export const footer = styled.footer`
+  display: flex;
+  width: 100%;
+  justify-content: end;
+`;
+
+export const checkoutButton = styled.button`
+  background-color: #333333;
+  color: #ffc500;
+  padding: 10px 25px;
+  border-radius: 15px;
+  margin-right: 100px;
+  margin-bottom: 20px;
+`;
