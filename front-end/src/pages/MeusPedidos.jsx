@@ -12,7 +12,8 @@ function MeusPedidos() {
   // const [newStatus, setNewStatus] = useState(status);
   const socket = io('http://localhost:3001');
 
-  const getPedidos = useCallback(async () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const getPedidos = (async () => {
     const token = getFromLocalStorage('user');
     const allOrders = await getAllOrders(token);
     await setOrdersCustomer(allOrders);

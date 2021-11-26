@@ -28,8 +28,14 @@ function CardMeusPedidos({ orders, token }) {
       onClick={ () => { detailOrder(id); } }
     >
       <div>
-        <h2>Pedido</h2>
-        <h2 data-testid={ `${role}_orders__element-order-id-${id}` }>{id}</h2>
+        <S.textPedido>Pedido</S.textPedido>
+        <S.numberPedido
+          data-testid={
+            `${role}_orders__element-order-id-${id}`
+          }
+        >
+          {id}
+        </S.numberPedido>
       </div>
       <S.infoPedido>
         <S.statusPedido data-testid={ `${role}_orders__element-delivery-status-${id}` }>
