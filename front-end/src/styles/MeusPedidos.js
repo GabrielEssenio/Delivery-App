@@ -12,7 +12,7 @@ export const contentMeusPedidos = styled.div`
   display: flex;
   flex-direction: row;
   width: 90%;
-  justify-content: space-evenly;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding-top: 20px;
   `;
@@ -31,7 +31,7 @@ export const buttonMeusPedidos = styled.button`
 display: flex;
 flex-direction: row;
 justify-content: space-evenly;
-width: 40%;
+width: 45%;
 background-color: #ffffff;
 color: #333333;
 border-radius: 15px;
@@ -88,5 +88,18 @@ background-color: #333333;
 color: #FFC500;
 border-radius: 5px;
 padding: 8px 12px;
+`;
 
+export const adressSeler = styled.h1`
+padding-top:15px;
+padding-bottom:10px;
+`;
+
+export const textAdress = styled.p`
+font-size:18px
+`;
+
+export const allPedido = styled.div`
+display: flex;
+flex-direction: column;
 `;

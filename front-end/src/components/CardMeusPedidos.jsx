@@ -37,24 +37,34 @@ function CardMeusPedidos({ orders, token }) {
           {id}
         </S.numberPedido>
       </div>
-      <S.infoPedido>
-        <S.statusPedido data-testid={ `${role}_orders__element-delivery-status-${id}` }>
-          <S.textStatus>{status}</S.textStatus>
-        </S.statusPedido>
-        <div>
-          <S.textDate data-testid={ `${role}_orders__element-order-date-${id}` }>
-            {dateFormat}
-          </S.textDate>
-          <S.textPrice
-            data-testid={ `${role}_orders__element-card-price-${id}` }
-          >
-            {totalPrice.replace('.', ',')}
-          </S.textPrice>
-        </div>
-      </S.infoPedido>
-      {role === 'seller'
-        ? <h3 data-testid={ `${ADRESS_SELLER}${id}` }>{deliveryAddress}</h3>
-        : null}
+      <S.allPedido>
+
+        <S.infoPedido>
+          <S.statusPedido data-testid={ `${role}_orders__element-delivery-status-${id}` }>
+            <S.textStatus>{status}</S.textStatus>
+          </S.statusPedido>
+          <div>
+            <S.textDate data-testid={ `${role}_orders__element-order-date-${id}` }>
+              {dateFormat}
+            </S.textDate>
+            <S.textPrice
+              data-testid={ `${role}_orders__element-card-price-${id}` }
+            >
+              {totalPrice.replace('.', ',')}
+            </S.textPrice>
+          </div>
+        </S.infoPedido>
+        <S.adressSeler>
+
+          {role === 'seller'
+            ? (
+              <S.textAdress data-testid={ `${ADRESS_SELLER}${id}` }>
+                {deliveryAddress}
+              </S.textAdress>
+            )
+            : null}
+        </S.adressSeler>
+      </S.allPedido>
     </S.buttonMeusPedidos>
   );
 }
