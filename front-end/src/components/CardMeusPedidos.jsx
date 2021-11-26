@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import * as S from '../styles/MeusPedidos';
 
+const color = {
+  Pendente: '#ff2300',
+  Preparando: '#0089ffbf',
+  Entregue: '#04ff00',
+  'Em Trânsito': '#00ffa1',
+};
+
 function CardMeusPedidos({ orders, token }) {
   const history = useHistory();
 
@@ -40,7 +47,10 @@ function CardMeusPedidos({ orders, token }) {
       <S.allPedido>
 
         <S.infoPedido>
-          <S.statusPedido data-testid={ `${role}_orders__element-delivery-status-${id}` }>
+          <S.statusPedido
+            color={ color[status] }
+            data-testid={ `${role}_orders__element-delivery-status-${id}` }
+          >
             <S.textStatus>{status}</S.textStatus>
           </S.statusPedido>
           <div>

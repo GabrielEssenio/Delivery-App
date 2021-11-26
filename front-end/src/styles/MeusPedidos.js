@@ -54,7 +54,7 @@ flex-direction: row;
 export const statusPedido = styled.div`
 display: flex;
 align-items: center;
-background-color: #333333;
+background-color: ${(props) => props.color};
 text-align: center;
 border-radius: 15px;
 margin: 5%;
@@ -62,7 +62,7 @@ margin: 5%;
 
 export const textStatus = styled.h1`
 font-size: 30px;
-color: #FFC500;
+color: #333;
 padding-right: 10px;
 padding-left: 10px;
 `;
