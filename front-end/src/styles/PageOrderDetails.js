@@ -24,3 +24,23 @@ export const divTotalPrice = styled.div`
   margin-left: 20px;
   position: fixed;
 `;
+
+export const spanStatus = styled.span`
+  background-color: ${(props) => props.color};
+  padding: 5px 15px;
+  border-radius: 15px;
+`;
+
+export const statusButton = styled.button`
+  background-color: #333333;
+  color: #ffc500;
+  padding: 10px 15px;
+  border-radius: 15px;
+  &:disabled {
+    background-color: #333333a3;
+    color: #ffc50075;
+  }
+  &:hover {
+    background-color: #3f3e3e;
+  }
+`;

@@ -31,6 +31,13 @@ const DEFAULT_DATA_PRODUCTS = {
   total_price: '',
 };
 
+const color = {
+  Pendente: '#ff2300',
+  Preparando: '#0089ffbf',
+  Entregue: '#04ff00',
+  'Em Trânsito': '#00ffa1',
+};
+
 function OrderDetails() {
   const [productsDetails, setProductsDetails] = useState(DEFAULT_DATA_PRODUCTS);
   const { idVenda } = useParams();
@@ -88,7 +95,7 @@ function OrderDetails() {
 
   const buttonPreparingCheck = () => (
     <div className="button-preparing-check">
-      <button
+      <P.statusButton
         type="button"
         data-testid={ role + PREPARING_CHECK }
         disabled={ productsDetails.status !== 'Pendente'
@@ -96,33 +103,33 @@ function OrderDetails() {
         onClick={ () => changeStatus('Preparando') }
       >
         PREPARAR PEDIDO
-      </button>
+      </P.statusButton>
     </div>
   );
 
   const buttonDeliveryCheck = () => (
     <div className="button-check-status">
-      <button
+      <P.statusButton
         type="button"
         disabled={ productsDetails.status !== 'Em Trânsito' }
         data-testid={ role + CHECK_STAUS }
         onClick={ () => changeStatus('Entregue') }
       >
         MARCAR COMO ENTREGUE
-      </button>
+      </P.statusButton>
     </div>
   );
 
   const buttonDispachCheck = () => (
     <div className="button-dispatch-check">
-      <button
+      <P.statusButton
         type="button"
         disabled={ productsDetails.status !== 'Preparando' }
         data-testid={ role + DISPACH_CHECK }
         onClick={ () => changeStatus('Em Trânsito') }
       >
         SAIU PARA ENTREGA
-      </button>
+      </P.statusButton>
     </div>
   );
 
@@ -142,7 +149,12 @@ function OrderDetails() {
           </span>
         </div>
         <div className="pedido-status">
-          <span data-testid={ role + STATUS }>{ productsDetails.status }</span>
+          <P.spanStatus
+            data-testid={ role + STATUS }
+            color={ color[productsDetails.status] }
+          >
+            { productsDetails.status }
+          </P.spanStatus>
         </div>
         {role === 'seller' ? buttonPreparingCheck() : ''}
         {role === 'seller' ? buttonDispachCheck() : buttonDeliveryCheck()}

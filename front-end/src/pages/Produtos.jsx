@@ -5,6 +5,7 @@ import getAllProcuts from '../services/apis/getCustomer';
 import NavBar from '../components/Navbar';
 import Context from '../context/Context';
 import CardProdutos from '../components/CardProdutos';
+import * as S from '../styles/Produtos';
 
 function Produtos() {
   const history = useHistory();
@@ -24,8 +25,8 @@ function Produtos() {
       <div>
         <CardProdutos />
       </div>
-      <footer>
-        <button
+      <S.footer>
+        <S.checkoutButton
           onClick={ () => history.push('/customer/checkout') }
           type="button"
           data-testid="customer_products__button-cart"
@@ -36,8 +37,8 @@ function Produtos() {
           >
             {totalPrice}
           </h2>
-        </button>
-      </footer>
+        </S.checkoutButton>
+      </S.footer>
     </>
   );
 }
