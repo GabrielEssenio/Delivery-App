@@ -62,7 +62,9 @@ function OrderDetails() {
         <T.td data-testid={ role + NAME + index }>{name}</T.td>
         <T.td data-testid={ role + QUANTITY + index }>{quantity}</T.td>
         <T.td data-testid={ role + UNIT_PRICE + index }>{price.replace('.', ',')}</T.td>
-        <T.td data-testid={ role + SUB_TOTAL + index }>{quantity * price}</T.td>
+        <T.td data-testid={ role + SUB_TOTAL + index }>
+          {(quantity * price).toFixed(2)}
+        </T.td>
       </T.tr>
     ),
   );
