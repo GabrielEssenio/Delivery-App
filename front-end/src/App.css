@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
 
 * {
@@ -9,6 +8,6 @@
 
 body {
   /* background-color: #252525; */
-  background-color: #f1f0ec;
+  background-color: #d8d8d8;
   height: 100vh;
 }

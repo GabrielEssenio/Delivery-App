@@ -24,7 +24,7 @@ function ListUser() {
   };
 
   return (
-    <main>
+    <S.mainUlList>
       <S.ulUsers>
         {allUsers.map(({ id, name, email, role }, index) => (
 
@@ -33,6 +33,8 @@ function ListUser() {
               data-testid={ `admin_manage__element-user-table-item-number-${id}` }
             >
               { index + 1 }
+              {' - '}
+
             </h3>
             <h3
               data-testid={ `admin_manage__element-user-table-name-${id}` }
@@ -49,17 +51,17 @@ function ListUser() {
             >
               { role }
             </h3>
-            <button
+            <S.buttonDelete
               onClick={ () => deleteUser(id) }
               type="button"
               data-testid={ `admin_manage__element-user-table-remove-${id}` }
             >
               Excluir
-            </button>
+            </S.buttonDelete>
           </S.liUsers>))}
       </S.ulUsers>
 
-    </main>
+    </S.mainUlList>
   );
 }
 
