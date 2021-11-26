@@ -35,7 +35,7 @@ font-size: 24px;
 export const inputText = styled.input`
 border-radius: 5px;
 box-shadow: 7px 7px 13px 0px rgba(50, 50, 50, 0.22);
-font-size: 20px;
+font-size: 18px;
 `;
 
 export const containerSelect = styled.div`
