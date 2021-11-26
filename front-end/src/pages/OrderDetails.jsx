@@ -62,14 +62,16 @@ function OrderDetails() {
         <T.td data-testid={ role + NAME + index }>{name}</T.td>
         <T.td data-testid={ role + QUANTITY + index }>{quantity}</T.td>
         <T.td data-testid={ role + UNIT_PRICE + index }>{price.replace('.', ',')}</T.td>
-        <T.td data-testid={ role + SUB_TOTAL + index }>{quantity * price}</T.td>
+        <T.td data-testid={ role + SUB_TOTAL + index }>
+          {(quantity * price).toFixed(2)}
+        </T.td>
       </T.tr>
     ),
   );
 
   const sellerNameComponente = () => (
     <div className="pessoa-vendedora">
-      <span>Vendedor:</span>
+      <span>Vendedor: </span>
       <span data-testid={ role + NAME_SELLER }>
         { productsDetails.seller.name }
       </span>
@@ -130,7 +132,7 @@ function OrderDetails() {
 
       <P.divOrderDetail>
         <div className="pedito-id">
-          <span>pedido:</span>
+          <span>Pedido: </span>
           <span data-testid={ role + ID_ORDER }>{ productsDetails.id }</span>
         </div>
         {role !== 'seller' ? sellerNameComponente() : ''}

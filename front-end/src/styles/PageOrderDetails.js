@@ -9,7 +9,8 @@ export const divOrderDetail = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  margin-top: 20px
+  margin-top: 30px;
+  font-size: 1.3em;
 `;
 
 export const divTotalPrice = styled.div`
@@ -21,4 +22,5 @@ export const divTotalPrice = styled.div`
   padding: 5px;
   margin-top: 100px;
   margin-left: 20px;
+  position: fixed;
 `;
