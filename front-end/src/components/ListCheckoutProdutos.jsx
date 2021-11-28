@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
+import * as T from '../styles/Table';
 
 const ITEM_NUMBER = 'customer_checkout__element-order-table-item-number-';
 const TABLE_NAME = 'customer_checkout__element-order-table-name-';
@@ -27,38 +28,45 @@ function ListCheckoutProdutos() {
     <div>
       <table>
         <thead>
-          <tr>
-            <th>Item</th>
-            <th>Descrição</th>
-            <th>Quantidade</th>
-            <th>Valor Unitário</th>
-            <th>Sub-total</th>
-            <th>Remover Item</th>
-          </tr>
+          <T.tr>
+            <T.th>Item</T.th>
+            <T.th>Descrição</T.th>
+            <T.th>Quantidade</T.th>
+            <T.th>Valor Unitário</T.th>
+            <T.th>Sub-total</T.th>
+            <T.th>Remover Item</T.th>
+          </T.tr>
         </thead>
         <tbody>
           {cart.filter((product) => product.quantity > 0).map((product, index) => {
             count += 1;
             return (
-              <tr key={ index }>
-                <td
+              <T.tr key={ index }>
+                <T.td
                   data-testid={ `${ITEM_NUMBER}${index}` }
                 >
                   {count}
-                </td>
-                <td data-testid={ `${TABLE_NAME}${index}` }>{product.name}</td>
-                <td data-testid={ `${TABLE_QUANTITY}${index}` }>{product.quantity}</td>
-                <td
+                </T.td>
+                <T.td data-testid={ `${TABLE_NAME}${index}` }>{product.name}</T.td>
+                <T.td
+                  data-testid={
+                    `${TABLE_QUANTITY}${index}`
+                  }
+                >
+                  {product.quantity}
+
+                </T.td>
+                <T.td
                   data-testid={ `${TABLE_PRICE}${index}` }
                 >
                   {product.price.replace('.', ',')}
-                </td>
-                <td
+                </T.td>
+                <T.td
                   data-testid={ `${TABLE_SUB_TOTAL}${index}` }
                 >
                   {(product.quantity * product.price).toFixed(2).replace('.', ',')}
-                </td>
-                <td>
+                </T.td>
+                <T.td>
                   <button
                     data-testid={ `${TABLE_REMOVE}${index}` }
                     type="button"
@@ -66,8 +74,8 @@ function ListCheckoutProdutos() {
                   >
                     Remover
                   </button>
-                </td>
-              </tr>
+                </T.td>
+              </T.tr>
             );
           })}
         </tbody>
