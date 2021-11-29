@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&display=swap');
+
+* {
+  font-family: 'Kalam', cursive;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* background-color: #252525; */
+  background-color: #d8d8d8;
+  height: 100vh;
+}
+
+button {
+  cursor: pointer;
+}
+
+button[disabled] {
+  cursor: no-drop;
+}
