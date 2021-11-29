@@ -21,14 +21,8 @@ function Checkout() {
   return (
     <div>
       <NavBar />
-      <div>
-        <h3>Finalizar Pedido</h3>
-        <ListCheckoutProdutos />
-      </div>
-      <div>
-        <h3>Detalhes e Endereço para Entrega</h3>
-        <DetailsAddress />
-      </div>
+      <ListCheckoutProdutos />
+      <DetailsAddress />
     </div>
   );
 }

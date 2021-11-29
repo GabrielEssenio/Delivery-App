@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
+import * as S from '../styles/Checkout';
 import * as T from '../styles/Table';
 
 const ITEM_NUMBER = 'customer_checkout__element-order-table-item-number-';
@@ -25,9 +26,10 @@ function ListCheckoutProdutos() {
   };
 
   return (
-    <div>
-      <table>
-        <thead>
+    <S.checkoutDiv>
+      <S.checkoutTitle>Finalizar Pedido</S.checkoutTitle>
+      <T.table>
+        <T.thead>
           <T.tr>
             <T.th>Item</T.th>
             <T.th>Descrição</T.th>
@@ -36,8 +38,8 @@ function ListCheckoutProdutos() {
             <T.th>Sub-total</T.th>
             <T.th>Remover Item</T.th>
           </T.tr>
-        </thead>
-        <tbody>
+        </T.thead>
+        <T.tbody>
           {cart.filter((product) => product.quantity > 0).map((product, index) => {
             count += 1;
             return (
@@ -49,12 +51,9 @@ function ListCheckoutProdutos() {
                 </T.td>
                 <T.td data-testid={ `${TABLE_NAME}${index}` }>{product.name}</T.td>
                 <T.td
-                  data-testid={
-                    `${TABLE_QUANTITY}${index}`
-                  }
+                  data-testid={ `${TABLE_QUANTITY}${index}` }
                 >
                   {product.quantity}
-
                 </T.td>
                 <T.td
                   data-testid={ `${TABLE_PRICE}${index}` }
@@ -67,21 +66,25 @@ function ListCheckoutProdutos() {
                   {(product.quantity * product.price).toFixed(2).replace('.', ',')}
                 </T.td>
                 <T.td>
-                  <button
+                  <T.finalizarButton
                     data-testid={ `${TABLE_REMOVE}${index}` }
                     type="button"
                     onClick={ () => removeItem(product.id) }
                   >
                     Remover
-                  </button>
+                  </T.finalizarButton>
                 </T.td>
               </T.tr>
             );
           })}
-        </tbody>
-      </table>
-      <h1 data-testid={ `${TOTAL_PRICE}` }>{totalPrice}</h1>
-    </div>
+        </T.tbody>
+      </T.table>
+      <S.checkoutTotal
+        data-testid={ `${TOTAL_PRICE}` }
+      >
+        {`Total - ${totalPrice}`}
+      </S.checkoutTotal>
+    </S.checkoutDiv>
   );
 }
 

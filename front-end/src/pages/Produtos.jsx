@@ -32,6 +32,7 @@ function Produtos() {
           data-testid="customer_products__button-cart"
           disabled={ (totalPrice === '0,00') }
         >
+          <h2>Finalizar pedido</h2>
           <h2
             data-testid="customer_products__checkout-bottom-value"
           >

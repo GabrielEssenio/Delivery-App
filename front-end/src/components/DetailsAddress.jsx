@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom';
 import Context from '../context/Context';
 import { createSale, createSaleProducts } from '../services/apis/servicesSales';
 import { getFromLocalStorage } from '../services/helpers/servicesLocalStorage';
+import * as S from '../styles/Checkout';
 
 const SELECT_SELLER = 'customer_checkout__select-seller';
 const INPUT_ADDRESS = 'customer_checkout__input-address';
@@ -46,48 +47,54 @@ function DetailsAddress() {
     const { id } = sale;
     await filterCart(id, token);
     socket.emit('realizarPedido');
-    history.push(`/customer/orders/${id}`);
+    history.push('/customer/orders');
   };
 
   return (
-    <form>
-      <span>P. Vendedora responsavel:</span>
-      <select
-        data-testid={ SELECT_SELLER }
-        name="seller"
-        onChange={ (e) => handleChange(e) }
-      >
-        <option value={ null }>Selecionar</option>
-        {sellers.map((seller, index) => (
-          <option
-            key={ index }
-            value={ seller.id }
-          >
-            {seller.name}
-          </option>))}
-      </select>
-      <span>Endereço</span>
-      <input
-        data-testid={ INPUT_ADDRESS }
-        type="text"
-        name="address"
-        onChange={ (e) => handleChange(e) }
-      />
-      <span>Numero</span>
-      <input
-        data-testid={ INPUT_NUMBER }
-        type="text"
-        name="number"
-        onChange={ (e) => handleChange(e) }
-      />
-      <button
-        data-testid={ SUBMIT_ORDER }
-        type="button"
-        onClick={ () => sendOrder() }
-      >
-        Finalizar Pedido
-      </button>
-    </form>
+    <S.checkoutForm>
+      <h3>Detalhes e Endereço para Entrega</h3>
+      <S.checkoutDiv>
+        <S.checkoutSpan>P. Vendedora responsavel:</S.checkoutSpan>
+        <S.checkoutSelect
+          data-testid={ SELECT_SELLER }
+          name="seller"
+          onChange={ (e) => handleChange(e) }
+        >
+          <option value={ null }>Selecionar</option>
+          {sellers.map((seller, index) => (
+            <option
+              key={ index }
+              value={ seller.id }
+            >
+              {seller.name}
+            </option>))}
+        </S.checkoutSelect>
+      </S.checkoutDiv>
+      <S.checkoutDiv>
+        <S.checkoutSpan>Endereço</S.checkoutSpan>
+        <S.checkoutInput
+          data-testid={ INPUT_ADDRESS }
+          type="text"
+          name="address"
+          onChange={ (e) => handleChange(e) }
+        />
+        <S.checkoutSpan>Numero</S.checkoutSpan>
+        <S.checkoutInput
+          data-testid={ INPUT_NUMBER }
+          type="text"
+          name="number"
+          onChange={ (e) => handleChange(e) }
+        />
+        <S.finalizarButton
+          data-testid={ SUBMIT_ORDER }
+          type="button"
+          disabled={ sellerId === 0 }
+          onClick={ () => sendOrder() }
+        >
+          Finalizar Pedido
+        </S.finalizarButton>
+      </S.checkoutDiv>
+    </S.checkoutForm>
   );
 }
 

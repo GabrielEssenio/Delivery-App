@@ -36,3 +36,11 @@ export const td = styled.td`
   padding: 3px;
   font-size: 1.1em;
 `;
+
+export const finalizarButton = styled.button` 
+  background-color: #333333;
+  color: #FFC500;
+  border: 1px;
+  width: 50%;
+  font-size: 80%;
+`;

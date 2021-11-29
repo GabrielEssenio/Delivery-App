@@ -13,16 +13,8 @@ export const divOrderDetail = styled.div`
   font-size: 1.3em;
 `;
 
-export const divTotalPrice = styled.div`
-  background-color: #4CAF50;
-  width: 100px;
-  text-align: center;
-  border-radius: 6px;
-  font-size: 1em;
-  padding: 5px;
-  margin-top: 100px;
-  margin-left: 20px;
-  position: fixed;
+export const checkoutTitle = styled.h1`
+  margin-left: 80%
 `;
 
 export const spanStatus = styled.span`

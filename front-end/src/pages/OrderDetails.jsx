@@ -170,15 +170,9 @@ function OrderDetails() {
           </T.tbody>
         </T.table>
       </div>
-
-      {/* Não sei onde esta o data-testId 46 */}
-      <P.divTotalPrice>
-        <span>Total:</span>
-        <span data-testid={ role + TOTAL_PRICE }>
-          {productsDetails.total_price.replace('.', ',')}
-        </span>
-      </P.divTotalPrice>
-
+      <P.checkoutTitle data-testid={ role + TOTAL_PRICE }>
+        {`Total - ${productsDetails.total_price.replace('.', ',')}`}
+      </P.checkoutTitle>
     </P.divPageOrderDetails>
   );
 }
